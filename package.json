@@ -1,0 +1,44 @@
+{
+  "name": "findfiles",
+  "displayName": "findfiles",
+  "version": "0.0.1",
+  "private": true,
+  "preview": true,
+  "author": "Rob Moran <github@thegecko.org>",
+  "main": "dist/extension.js",
+  "browser": "dist/web-extension.js",
+  "engines": {
+    "vscode": "^1.63.0"
+  },
+  "scripts": {
+    "prepare": "yarn build",
+    "clean": "git clean -f -x ./node_modules ./dist",
+    "build": "webpack --mode production",
+    "watch": "webpack -w",
+    "serve": "serve --cors -p 1999"
+  },
+  "devDependencies": {
+    "@types/node": "^20.6.5",
+    "@types/vscode": "^1.63.0",
+    "serve": "^14.2.1",
+    "ts-jest": "^29.1.1",
+    "ts-loader": "^9.4.4",
+    "typescript": "^5.2.2",
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4"
+  },
+  "contributes": {
+    "commands": [
+      {
+        "command": "findfiles.find",
+        "title": "Find Files"
+      }
+    ]
+  },
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "extensionKind": [
+    "ui"
+  ]
+}
